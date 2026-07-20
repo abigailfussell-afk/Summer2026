@@ -28,7 +28,7 @@ public class TankDrive extends OpMode {
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
-        intake.setDirection(DcMotor.Direction.FORWARD);
+        intake.setDirection(DcMotor.Direction.REVERSE);
         leftServo.setDirection(DcMotor.Direction.FORWARD);
         rightServo.setDirection(DcMotor.Direction.FORWARD);
 
@@ -51,11 +51,10 @@ public class TankDrive extends OpMode {
         leftDrive.setPower(leftJoyY);
         rightDrive.setPower(rightJoyY);
 
-        if (!gamepad1.right_bumper)
-        {
-            if (gamepad1.left_bumper) {
+
+            if (gamepad2.left_bumper || gamepad1.left_bumper) {
                 intake.setPower(1);
-                leftServo.setPower(1);
+                leftServo.setPower(-1);
                 rightServo.setPower(1);
             }
             else {
@@ -63,21 +62,7 @@ public class TankDrive extends OpMode {
                 leftServo.setPower(0);
                 rightServo.setPower(0);
             }
-        }
 
-        if (!gamepad1.left_bumper)
-        {
-            if (gamepad1.right_bumper) {
-                intake.setPower(-1);
-                leftServo.setPower(-1);
-                rightServo.setPower(-1);
-            }
-            else {
-                intake.setPower(0);
-                leftServo.setPower(0);
-                rightServo.setPower(0);
-            }
-        }
 
 //        leftDrive.setPower(leftJoyY);
 //        rightDrive.setPower(rightJoyY);

@@ -43,6 +43,7 @@ public class SkyNet extends OpMode {
             telemetry.addData("tx", closest.getTargetXDegrees());
             telemetry.addData("ty", closest.getTargetYDegrees());
             telemetry.addData("area", closest.getTargetArea());
+            telemetry.update();
 
         }
 
