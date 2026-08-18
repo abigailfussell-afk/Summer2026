@@ -25,7 +25,8 @@ import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 public class SimpleDriverDanny {
     public static class Poses {
         //region shared poses
-        public static Pose TOP_RIGHT_CORNER = new Pose(144, 144, Math.toRadians(0));
+        public static Pose TOP_RIGHT_CORNER = new Pose(134, 134, Math.toRadians(0));
+        public static Pose BOTTOM_LEFT_CORNER = new Pose (10,10, Math.toRadians(180));
     }
     //region Enums
     public enum Alliance {

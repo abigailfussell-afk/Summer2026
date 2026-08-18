@@ -4,6 +4,7 @@ import com.pedropathing.geometry.Pose;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name = "ATeleOp", group = "TeleOp")
@@ -16,7 +17,7 @@ public class  ATeleOp extends OpMode {
     @Override
     public void init() {
         intake = hardwareMap.get(DcMotor.class, "intake");
-        intake.setDirection(DcMotor.Direction.REVERSE);
+        intake.setDirection(DcMotor.Direction.FORWARD);
         intake.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         SimpleDriverDanny.Alliance startingAlliance = SimpleDriverDanny.Alliance.BLUE;
@@ -61,6 +62,9 @@ public class  ATeleOp extends OpMode {
 
         if (gamepad1.bWasPressed()) {
             driver.toggleSlowMode(); // allows us to cut robot movement speed in half when precision is needed
+        }
+        if (gamepad1.a) {
+            driver.moveToPose(SimpleDriverDanny.Poses.BOTTOM_LEFT_CORNER,true);
         }
 
 //        if (gamepad1.backWasPressed()) {

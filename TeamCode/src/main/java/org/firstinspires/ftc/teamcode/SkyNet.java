@@ -13,6 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 public class SkyNet extends OpMode {
 
     private Limelight3A limelight;
+    private double distance;
 
     @Override
     public void init(){
@@ -40,13 +41,20 @@ public class SkyNet extends OpMode {
         }
 
         if(closest != null) {
+            distance = getDistanceFromBall(result.getTa());
+            telemetry.addData("distance", distance);
             telemetry.addData("tx", closest.getTargetXDegrees());
             telemetry.addData("ty", closest.getTargetYDegrees());
             telemetry.addData("area", closest.getTargetArea());
+            telemetry.addData("ta", result.getTa());
             telemetry.update();
 
         }
 
-
+    }
+    public double getDistanceFromBall(double ta) {
+        double scale = 0.001486;
+        double distance = (scale / ta);
+        return distance;
     }
 }
