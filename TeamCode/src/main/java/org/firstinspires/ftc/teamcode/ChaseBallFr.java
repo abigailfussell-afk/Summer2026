@@ -105,13 +105,13 @@ public class ChaseBallFr extends LinearOpMode {
 
     /** The smallest turn power that can actually move the robot. Below this the
      *  motors just buzz and the wheels do not break friction with the floor. */
-    private static final double MIN_TURN_POWER = 0.12;
+    private static final double MIN_TURN_POWER = 0.2;
 
     /** The largest turn power we will ever command while aiming. */
     private static final double MAX_TURN_POWER = 0.35;
 
     /** How fast the robot drives forward at the ball. */
-    private static final double CHASE_DRIVE_POWER = 0.30;
+    private static final double CHASE_DRIVE_POWER = 0.70;
 
     /** Steering gain used WHILE driving forward. It is gentler than TURN_GAIN
      *  because we only need small corrections, not a full pivot. */
@@ -141,7 +141,7 @@ public class ChaseBallFr extends LinearOpMode {
 
     /** Ignore blobs smaller than this percent of the image. This throws out
      *  camera noise and yellow things far off the field. */
-    private static final double MIN_TARGET_AREA_PERCENT = 0.05;
+    private static final double MIN_TARGET_AREA_PERCENT = 0.01;
 
     // ---- Camera geometry. These are ONLY used for the distance readout on the
     // ---- driver hub. The robot does not steer with them. Measure them on your
