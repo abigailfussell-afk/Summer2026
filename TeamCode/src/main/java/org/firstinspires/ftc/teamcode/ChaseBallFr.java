@@ -90,14 +90,14 @@ public class ChaseBallFr extends LinearOpMode {
 
     /** How fast the robot spins while hunting for a ball. Higher = faster spin
      *  but the camera is more likely to blur past a ball without seeing it. */
-    private static final double SEARCH_TURN_POWER = 0.25;
+    private static final double SEARCH_TURN_POWER = 0.75;
 
     /** Flip this to false to make the search spin the other direction. */
     private static final boolean SEARCH_SPINS_CLOCKWISE = true;
 
     /** How close to dead-center (in degrees) counts as "lined up". Smaller is
      *  more precise but the robot may wobble back and forth forever. */
-    private static final double CENTER_TOLERANCE_DEGREES = 3.0;
+    private static final double CENTER_TOLERANCE_DEGREES = 5.0;
 
     /** Proportional gain for turning. Turn power = tx * this number.
      *  Too high = the robot overshoots and oscillates. Too low = it creeps. */
@@ -108,10 +108,10 @@ public class ChaseBallFr extends LinearOpMode {
     private static final double MIN_TURN_POWER = 0.2;
 
     /** The largest turn power we will ever command while aiming. */
-    private static final double MAX_TURN_POWER = 0.35;
+    private static final double MAX_TURN_POWER = 1.0;
 
     /** How fast the robot drives forward at the ball. */
-    private static final double CHASE_DRIVE_POWER = 0.70;
+    private static final double CHASE_DRIVE_POWER = 1.0;
 
     /** Steering gain used WHILE driving forward. It is gentler than TURN_GAIN
      *  because we only need small corrections, not a full pivot. */
@@ -128,10 +128,10 @@ public class ChaseBallFr extends LinearOpMode {
 
     /** After the ball disappears under the camera, keep driving forward this
      *  long so the intake actually sweeps it in. Tune this on the field. */
-    private static final double SWEEP_SECONDS = 0.75;
+    private static final double SWEEP_SECONDS = 0.1;
 
     /** How long to sit still after each ball, as required by our routine. */
-    private static final double PAUSE_SECONDS = 3.0;
+    private static final double PAUSE_SECONDS = 0.2;
 
     /** Safety limits. If aiming or chasing takes longer than this, give up and
      *  go back to searching. Without these a bad detection could drive the
